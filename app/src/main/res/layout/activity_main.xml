@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="com.linewow.xhyy.databindingdemo1.ClickControl"/>
+        <variable
+            name="clickControl"
+            type="ClickControl"/>
+        <import type="android.databinding.ObservableArrayMap"/>
+        <import type="android.databinding.ObservableArrayList"/>
+        <variable
+            name="mylist"
+            type="ObservableArrayList"/>
+        <variable
+            name="mymap"
+            type="ObservableArrayMap"/>
+        <import type="com.linewow.xhyy.databindingdemo1.PicassoPathInfo"/>
+        <variable
+            name="pathInfo"
+            type="PicassoPathInfo"/>
+
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{context.getPackageName()}"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="click it!"
+            android:onClick="@{clickControl.doClick}"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/main_recycler"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text='@{""+mymap["myKey"]}'
+            android:gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text='@{"内容"+mylist[0]}'
+            />
+
+        <ImageView
+            android:id="@+id/main_Img"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            bind:imagePath="@{pathInfo.path}"/>
+    </LinearLayout>
+
+</layout>

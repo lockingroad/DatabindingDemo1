@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    <data
+        >
+        <import type="com.linewow.xhyy.myapplication.AnroidInfoControl"/>
+        <variable
+            name="control"
+            type="AnroidInfoControl"/>
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/main_line">
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="增加"
+                android:onClick="@{control.add}"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="减少"
+                android:layout_weight="1"
+                android:onClick="@{control.remove}"/>
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="doClick"
+                android:text="change"/>
+        </LinearLayout>
+        <ListView
+            android:id="@+id/main_listview"
+            android:layout_above="@id/main_line"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            bind:setadapter="@{control.list}"/>
+    </RelativeLayout>
+</layout>
